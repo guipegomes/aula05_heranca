@@ -1,28 +1,36 @@
 public final class Triangle extends Figure {
-    private final double base;
-    private final double height;
+    private final double a;
+    private final double b;
+    private final double c;
 
-    Triangle(double x, double y, double base, double height) {
+    Triangle(double x, double y, double a, double b, double c) {
         super(x, y);
-        this.base = base;
-        this.height = height;
+        this.a = a;
+        this.b = b;
+        this.c = c;
     }
 
-    public double getBase() {
-        return base;
+    public double getA() {
+        return a;
     }
 
-    public double getHeight() {
-        return height;
+    public double getB() {
+        return b;
+    }
+
+    public double getC() {
+        return c;
     }
 
     @Override
     public double area() {
-        return (base * height) / 2;
+        // s = semiperimeter
+        double s = (a + b + c) / 2;
+        return Math.sqrt(s * (s-a) * (s-b) * (s-c)); // Heron's formula
     }
 
     @Override
     public String toString() {
-        return super.toString() + "\nBase : " + base + "\nHeight : " + height;
+        return String.format("%s\nA: %.2f\nB: %.2f\nC: %.2f", super.toString(), a, b, c);
     }
 }

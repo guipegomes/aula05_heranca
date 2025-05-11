@@ -2,10 +2,10 @@ public final class Rectangle extends Figure{
     private final double width;
     private final double length;
 
-    Rectangle(double x,  double y) {
+    Rectangle(double x,  double y, double width, double length) {
         super(x, y);
-        this.width = x;
-        this.length = y;
+        this.width = width;
+        this.length = length;
     }
 
     @Override
